@@ -1,0 +1,136 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PrepTrack | Interview Practice Tracker</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="navbar">
+    <h2> PrepTrack</h2>
+    <button id="themeBtn" class="theme-btn">🌙 Dark Mode</button>
+  </header>
+
+  <main class="container">
+    <section class="welcome">
+      <div>
+        <p class="eyebrow">YOUR WEEKLY PROGRESS</p>
+        <h1>Interview Preparation</h1>
+        <p>Small daily steps. Big interview results.</p>
+      </div>
+      <div class="date-box">
+        <span id="todayDate"></span>
+      </div>
+    </section>
+
+    <section class="stats">
+      <article class="stat-card">
+        <p>Total Tasks</p>
+        <h2 id="totalTasks">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Completed</p>
+        <h2 id="completedTasks">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Pending</p>
+        <h2 id="pendingTasks">0</h2>
+      </article>
+      <article class="stat-card">
+        <p>Completion</p>
+        <h2 id="completionRate">0%</h2>
+      </article>
+    </section>
+
+    <section class="progress-card">
+      <div class="progress-heading">
+        <h3>Weekly Goal</h3>
+        <span id="progressText">0% completed</span>
+      </div>
+      <div class="progress-track">
+        <div id="progressBar" class="progress-fill"></div>
+      </div>
+    </section>
+
+    <section class="tasks-section">
+      <div class="section-heading">
+        <div>
+          <h2>My Practice Tasks</h2>
+          <p>Plan your work and track your progress.</p>
+        </div>
+        <button id="addTaskBtn" class="primary-btn">+ Add Task</button>
+      </div>
+
+      <div class="toolbar">
+        <div id="dayFilters" class="day-filters">
+          <button class="day-btn active" data-day="All">All</button>
+          <button class="day-btn" data-day="Monday">Mon</button>
+          <button class="day-btn" data-day="Tuesday">Tue</button>
+          <button class="day-btn" data-day="Wednesday">Wed</button>
+          <button class="day-btn" data-day="Thursday">Thu</button>
+          <button class="day-btn" data-day="Friday">Fri</button>
+          <button class="day-btn" data-day="Saturday">Sat</button>
+          <button class="day-btn" data-day="Sunday">Sun</button>
+        </div>
+
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="All">All Categories</option>
+          <option value="DSA">DSA</option>
+          <option value="Frontend">Frontend</option>
+          <option value="Backend">Backend</option>
+          <option value="Git & GitHub">Git & GitHub</option>
+          <option value="Mock Interview">Mock Interview</option>
+        </select>
+      </div>
+
+      <div id="taskList" class="task-list"></div>
+    </section>
+  </main>
+
+  <dialog id="taskDialog">
+    <form id="taskForm">
+      <h2 id="dialogTitle">Add New Task</h2>
+
+      <label for="taskTitle">Task Name</label>
+      <input id="taskTitle" type="text" placeholder="e.g. Solve Two Sum" required>
+
+      <label for="taskCategory">Category</label>
+      <select id="taskCategory" required>
+        <option value="DSA">DSA</option>
+        <option value="Frontend">Frontend</option>
+        <option value="Backend">Backend</option>
+        <option value="Git & GitHub">Git & GitHub</option>
+        <option value="Mock Interview">Mock Interview</option>
+      </select>
+
+      <label for="taskDay">Day</label>
+      <select id="taskDay" required>
+        <option>Monday</option>
+        <option>Tuesday</option>
+        <option>Wednesday</option>
+        <option>Thursday</option>
+        <option>Friday</option>
+        <option>Saturday</option>
+        <option>Sunday</option>
+      </select>
+
+      <label for="taskDuration">Duration (minutes)</label>
+      <input id="taskDuration" type="number" min="1" value="30" required>
+
+      <div class="dialog-actions">
+        <button type="button" id="cancelBtn" class="secondary-btn">Cancel</button>
+        <button type="submit" class="primary-btn">Save Task</button>
+      </div>
+    </form>
+  </dialog>
+
+  <footer>
+    <p>&copy; Interview Practice Tracker.</p>
+  </footer>
+
+  <script src="script.js"></script>
+
+</body>
+</html>
